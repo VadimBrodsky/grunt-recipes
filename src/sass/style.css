@@ -1,9 +1,0 @@
-a {
-  background: linear-gradient(to top, black, white);
-  display: flex;
-  width: calc(50% - 2em);
-  font-size: 5rem;
-}
-::placeholder {
-  color: #ccc
-}

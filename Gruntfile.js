@@ -25,21 +25,30 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        files: {
-          'build/css/style.css': 'src/sass/style.css'
+        src: 'build/css/*.css'
+      }
+    },
+    sass: {                              // Task
+      dist: {                            // Target
+        options: {                       // Target options
+          style: 'expanded'
+        },
+        files: {                         // Dictionary of files
+          'build/css/style.css': 'src/sass/style.sass',       // 'destination': 'source'
         }
       }
     },
     watch: {
       styles: {
         files: ['src/sass/style.css'],
-        tasks: ['postcss']
+        tasks: ['sass', 'postcss']
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask('speak', function() {
     console.log("I'm speaking");
